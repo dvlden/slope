@@ -1,0 +1,30 @@
+body {
+  counter-reset: section;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 5rem); // I want each section to have this 100 viewport height excluding the 5 rems that are from Angled pseudo class
+
+  &::before {
+    counter-increment: section;
+    content: counter(section);
+    font: {
+      family: "Monoton";
+      size: 10rem;
+    }
+  }
+
+  &:nth-child(even) {
+    background-color: map-get($colors, 'even');
+    color: rgba(0, 0, 0, .5);
+  }
+
+  &:nth-child(odd) {
+    background-color: map-get($colors, 'odd');
+    color: rgba(255, 255, 255, .5);
+  }
+}

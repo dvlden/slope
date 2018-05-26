@@ -1,0 +1,22 @@
+@import '../../src/sloped-edge';
+
+.sloped {
+  // this is our root class, to avoid duplication of properties
+  @include sloped-edge($root: true);
+
+  // all variants composed in a list
+  $positions: ('in', 'right', 'out', 'left');
+
+  // build it up 👏
+  @each $position in $positions {
+    $index: index($positions, $position);
+    $color: if($index % 2 == 0, 'even', 'odd');
+
+    &:nth-child(#{$index}) {
+      @include sloped-edge(
+        map-get($colors, $color),
+        $position
+      );
+    }
+  }
+}
