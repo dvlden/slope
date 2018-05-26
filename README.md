@@ -44,9 +44,7 @@ $dark-gray: #292929;
 
 ## Examples
 
-You can download the Sloped Edge mixin locally and take a look at `example` directory. I combined all possible variants into a single demo.
-
-> Reminder for myself: I think we can use GH pages and link to `example` directory and make live demo instead?
+I combined all possible variations from mixin into a single example. It is now hosted on GitHub, so take a look at the [Sloped Edge - Example](https://dvlden.github.io/sloped-edge/).
 
 
 ## Browser Support
