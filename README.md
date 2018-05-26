@@ -63,3 +63,7 @@ Basically, just the support of `vw` unit. Check the browser coverage on the link
 2. Why the need for `$root` argument? 
 
 > Because it prevents duplicate code and it is the only way that can work out for this particular mixin.
+
+3. Why it does not support `top-left` and `top-right` position, but instead there's `left` and `right` which refers to the bottom edge only?
+
+> For two reasons. First, to keep the mixin small size, which is not that relevant. Second, because it is not natural. I bet you don't add margins and paddings to the top of some elements either, but to the bottom instead. It just feels natural that everything goes from the top to the bottom. I don't think that I'll be adding support for the `top` edge, cause it doesn't make sense.
