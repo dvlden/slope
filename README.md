@@ -1,6 +1,6 @@
 # Sloped Edge - Sass mixin
 
-With this powerful Sass mixin (uses `scss` syntax), you'll be able to build sloped section edges with consistent angle.
+With this powerful Sass mixin (uses `scss` syntax), you'll be able to build sloped section edges with a consistent angle.
 It uses most basic `css` properties, mainly just a `border`... No `transforms` or `clip-path` properties, no `svg` images.
 
 
@@ -36,18 +36,17 @@ $dark-gray: #292929;
 
 | Argument    | Default | Description |
 | ----------- | ------- | ----------- |
-| `$color`    | `null`  | The color of sloped edge. _(color of your section should match this color)_ |
-| `$position` | `null`  | The position of sloped edge. _(can be: `in`, `out`, `right`, `left`)_ |
+| `$color`    | `null`  | The Color of the sloped edge. _(color of your section should match this color)_ |
+| `$position` | `null`  | The position of the sloped edge. _(can be: `in`, `out`, `right`, `left`)_ |
 | `$height`   | `5rem`  | The height of the sloped edge. _(that's a perfect size, but you can tweak it if you like)_ |
-| `$root`     | `false` | Prevents code duplication. _(as you will always have sections, you would call root once at the sloped edge class)_ |
+| `$root`     | `false` | It prevents code duplication. _(as you will almost always have multiple sections, you would call root once at the sloped edge class)_ |
 
 
 ## Examples
 
-You can download the Sloped Edges locally and take a look at `example` directory.
-I combined all possible variants into a single demo.
+You can download the Sloped Edge mixin locally and take a look at `example` directory. I combined all possible variants into a single demo.
 
-> Reminder for myself: I think we can use GH pages to link into `example` directory and make live demo instead?
+> Reminder for myself: I think we can use GH pages and link to `example` directory and make live demo instead?
 
 
 ## Browser Support
@@ -61,8 +60,8 @@ Basically, just the support of `vw` unit. Check the browser coverage on the link
 
 1. You said no `transform` properties, but I can clearly see one in your mixin? `-webkit-transform: rotate(360deg);`
 
-> Yes, I clearly stated that. You can also see a note next to that line of code... It simply fixes some weird choppy border bug on Safari _(cause Safari is dumb)_ :punch:. It is also affects Webkit browsers only, but it really makes no difference in any other Webkit browser, except Safari.
+> Yes, I clearly stated that. You can also see a note next to that line of code... It simply fixes some weird choppy border bug on Safari _(cause Safari is dumb)_ :punch:. It also affects Webkit browsers only, but it really makes no difference in any other Webkit browser, except Safari.
 
 2. Why the need for `$root` argument? 
 
-> Because it prevents duplicate code and it is the only way that actually can work out for this particular mixin. In most cases, you will have multiple Sloped/Angled sections and this will help a lot. Trust!
+> Because it prevents duplicate code and it is the only way that can work out for this particular mixin.
