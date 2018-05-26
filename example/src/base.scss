@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 5rem); // I want each section to have this 100 viewport height excluding the 5 rems that are from Angled pseudo class
+  min-height: calc(100vh - 5rem);
 
   &::before {
     counter-increment: section;
