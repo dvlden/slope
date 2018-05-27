@@ -1,7 +1,7 @@
 {
   "name": "sloped-edge",
   "description": "Sass mixin that helps you build sloped section edges with a consistent angle.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/sloped-edge.scss",
   "license": "MIT",
   "homepage": "https://github.com/dvlden/sloped-edges#readme",
@@ -25,10 +25,9 @@
     "last 2 versions"
   ],
   "scripts": {
-    "autoprefix": "postcss example/dist/app.css -u autoprefixer -o example/dist/app.css",
-    "sass": "node-sass --output-style expanded --source-map true example/src/app.scss example/dist/app.css",
-    "watch": "yarn sass --watch",
-    "build": "rimraf example/dist && yarn sass && yarn autoprefix"
+    "autoprefix:vertical": "postcss examples/layouts/vertical/dist/app.css -u autoprefixer -o examples/layouts/vertical/dist/app.css",
+    "sass:vertical": "node-sass --output-style expanded --source-map true examples/layouts/vertical/src/app.scss examples/layouts/vertical/dist/app.css",
+    "build:vertical": "rimraf examples/layouts/vertical/dist && yarn sass:vertical && yarn autoprefix:vertical"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",

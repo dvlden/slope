@@ -1,8 +1,8 @@
-@import '../../src/sloped-edge';
+@import '../../../../src/index';
 
 .sloped {
   // this is our root class, to avoid duplication of properties
-  @include sloped-edge($root: true);
+  @include sloped-edge-root;
 
   // all variants composed in a list
   $positions: ('in', 'right', 'out', 'left');
@@ -14,8 +14,9 @@
 
     &:nth-child(#{$index}) {
       @include sloped-edge(
-        map-get($colors, $color),
-        $position
+        $color: map-get($colors, $color),
+        $position: $position,
+        // $height: unquote(($index * 2) + 'rem')
       );
     }
   }
