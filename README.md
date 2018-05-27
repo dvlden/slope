@@ -28,7 +28,8 @@ $dark-gray: #292929;
   min-height: 300px;
   
   // let the mixin do the magic
-  @include sloped-edge($dark-grey, 'right', $root: true);
+  @include sloped-edge-root;
+  @include sloped-edge($dark-grey, 'right');
 }
 ```
 
@@ -39,7 +40,6 @@ $dark-gray: #292929;
 | `$color`    | `null`  | The Color of the sloped edge. _(color of your section should match this color)_ |
 | `$position` | `null`  | The position of the sloped edge. _(can be: `in`, `out`, `right`, `left`)_ |
 | `$height`   | `5rem`  | The height of the sloped edge. _(that's a perfect size, but you can tweak it if you like)_ |
-| `$root`     | `false` | It prevents code duplication. _(as you will almost always have multiple sections, you would call root once at the sloped edge class)_ |
 
 
 ## Examples
@@ -52,18 +52,3 @@ I combined all possible variations from mixin into a single example. It is now h
 Basically, just the support of `vw` unit. Check the browser coverage on the link below...
 
 [Can I Use - Viewport Width unit?](https://caniuse.com/#search=vw)
-
-
-## Q & A
-
-1. You said no `transform` properties, but I can clearly see one in your mixin? `-webkit-transform: rotate(360deg);`
-
-> Yes, I clearly stated that. You can also see a note next to that line of code... It simply fixes some weird choppy border bug on Safari _(cause Safari is dumb)_ :punch:. It also affects Webkit browsers only, but it really makes no difference in any other Webkit browser, except Safari.
-
-2. Why the need for `$root` argument? 
-
-> Because it prevents duplicate code and it is the only way that can work out for this particular mixin.
-
-3. Why it does not support `top-left` and `top-right` position, but instead there's `left` and `right` which refers to the bottom edge only?
-
-> For two reasons. First, to keep the mixin small size, which is not that relevant. Second, because it is not natural. I bet you don't add margins and paddings to the top of some elements either, but to the bottom instead. It just feels natural that everything goes from the top to the bottom. I don't think that I'll be adding support for the top edge, cause it doesn't make sense.
