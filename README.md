@@ -16,16 +16,16 @@ It uses most basic `css` properties, mainly just a `border`... No `transforms` o
 
 ```scss
 // import mixin
-@import 'sloped-edge';
+@import '~sloped-edge';
 
 // set variable for a color
 $dark-gray: #292929;
 
 // give it a class with any name you prefer
-.sloped {
+.section {
   // apply some base styling to the section
   background-color: $dark-grey;
-  min-height: 300px;
+  min-height: 50vh;
   
   // let the mixin do the magic
   @include sloped-edge-root;
@@ -33,22 +33,39 @@ $dark-gray: #292929;
 }
 ```
 
+> HINT: For "real-world" use case and more advanced example, check "examples" live or locally.
+
+
 ## Arguments
 
-| Argument    | Default | Description |
-| ----------- | ------- | ----------- |
-| `$color`    | `null`  | The Color of the sloped edge. _(color of your section should match this color)_ |
-| `$position` | `null`  | The position of the sloped edge. _(can be: `in`, `out`, `right`, `left`)_ |
-| `$height`   | `5rem`  | The height of the sloped edge. _(that's a perfect size, but you can tweak it if you like)_ |
+| Argument    | Default Value | Possible Value               |
+| ----------- | ------------- | ---------------------------- |
+| `$color`    | -             | any color (e.g. `#292929`)   |
+| `$position` | -             | `in`, `out`, `right`, `left` |
+| `$height`   | `5rem`        | any number with a unit that is supported within `border-width` property |
+
+> HINT: For the `$color` you don't necesserily have to use `HEX` value.
+
+
+## Variables
+
+| Variable              | Default Value       | Possible Value |
+| --------------------- | ------------------- | -------------- |
+| `$sloped-edge-height` | `5rem`              | -              |
+| `$sloped-edge-layout` | `'y'`               | `x`, `y`       |
 
 
 ## Examples
 
-I combined all possible variations from mixin into a single example. It is now hosted on GitHub, so take a look at the [Sloped Edge - Example](https://dvlden.github.io/sloped-edge/).
+You'll find two examples that include all possible variations. The only difference between these examples is a layout...
+You can download this whole project and open examples locally or you may check live examples _(hosted on GitHub Pages)_:
+
+- [Sloped Edge - Vertical Example](https://dvlden.github.io/sloped-edge/vertical/)
+- [Sloped Edge - Horizontal Example](https://dvlden.github.io/sloped-edge/horizontal/)
 
 
 ## Browser Support
 
-Basically, just the support of `vw` unit. Check the browser coverage on the link below...
+Basically, just the support of Viewport units (`vw` | `vh`). Check the browser coverage on the link below...
 
-[Can I Use - Viewport Width unit?](https://caniuse.com/#search=vw)
+[Can I Use - Viewport units?](https://caniuse.com/#search=viewport%20units)

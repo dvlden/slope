@@ -1,0 +1,32 @@
+@function get-item ($map, $key: $sloped-edge-layout) {
+  @return map-get($map, $key);
+}
+
+@function get-size () {
+  @return get-item((
+    'x': 100vh,
+    'y': 100vw
+  ));
+}
+
+@function get-opposite-axis () {
+  @return get-item((
+    'x': 'y',
+    'y': 'x'
+  ));
+}
+
+@function get-sides-list () {
+  @return (
+    'x': ('left', 'right', 'bottom', 'top'),
+    'y': ('top', 'bottom', 'right', 'left')
+  );
+}
+
+@function get-sides () {
+  @return get-item(get-sides-list());
+}
+
+@function get-opposite-sides () {
+  @return get-item(get-sides-list(), get-opposite-axis());
+}

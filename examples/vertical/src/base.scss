@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 5rem);
+  min-height: 50vh;
 
   &::before {
     counter-increment: section;
@@ -19,12 +19,12 @@ body {
   }
 
   &:nth-child(even) {
-    background-color: map-get($colors, 'even');
+    background-color: map-get($section-colors, 'even');
     color: rgba(0, 0, 0, .5);
   }
 
   &:nth-child(odd) {
-    background-color: map-get($colors, 'odd');
+    background-color: map-get($section-colors, 'odd');
     color: rgba(255, 255, 255, .5);
   }
 }

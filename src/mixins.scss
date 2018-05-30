@@ -1,54 +1,73 @@
 @mixin sloped-edge-root {
+  $sides: get-sides();
+
   position: relative;
+
+  &::after {
+    @if $sloped-edge-layout == 'x' {
+      top: 0;
+    }
+    @else if $sloped-edge-layout == 'y' {
+      right: 0;
+    }
+
+    #{nth($sides, 2)}: -#{$sloped-edge-height};
+  }
 
   &::after {
     content: "";
     position: absolute;
-    right: 0;
     border: 0 solid transparent;
     -webkit-transform: rotate(360deg); // * note: this fixes choppy borders on Safari
     z-index: 1;
   }
 }
 
-@mixin sloped-edge ($color: null, $position: null, $height: $sloped-edge-height) {
-  $width: 100vw; // * note: hard-coded value, cause it makes no sense to make this an argument
+@mixin sloped-edge ($color, $position, $height: $sloped-edge-height) {
+  $size: get-size();
+  $sides: get-sides();
+  $opposite-sides: get-opposite-sides();
 
-  &:not(:first-child) {
-    padding-top: $height;
-  }
-
-  &::after {
-    bottom: -$height;
+  @if $height != $sloped-edge-height {
+    &::after {
+      #{nth($sides, 2)}: -#{$height};
+    }
   }
 
   @if $position == 'left' or $position == 'right' {
     &::after {
       border: {
-        bottom-width: $height;
-        #{$position}-width: $width;
-        #{$position}-color: $color;
+        @if $sloped-edge-layout == 'x' {
+          left-color: $color;
+          left-width: $height;
+          #{nth($opposite-sides, index($sides, $position))}-width: $size;
+        }
+        @else if $sloped-edge-layout == 'y' {
+          #{nth($sides, index($sides, $position))}-color: $color;
+          #{nth($sides, index($sides, $position))}-width: $size;
+          bottom-width: $height;
+        }
       }
     }
   }
   @else if $position == 'in' or $position == 'out' {
     &::after {
       border: {
-        left-width: ($width / 2);
-        right-width: ($width / 2);
+        #{nth($opposite-sides, 1)}-width: ($size / 2);
+        #{nth($opposite-sides, 2)}-width: ($size / 2);
       }
 
       @if $position == 'in' {
         border: {
-          bottom-width: $height;
-          left-color: $color;
-          right-color: $color;
+          #{nth($opposite-sides, 1)}-color: $color;
+          #{nth($opposite-sides, 2)}-color: $color;
+          #{nth($opposite-sides, 3)}-width: $height;
         }
       }
       @else if $position == 'out' {
         border: {
-          top-color: $color;
-          top-width: $height;
+          #{nth($sides, 1)}-color: $color;
+          #{nth($sides, 1)}-width: $height;
         }
       }
     }

@@ -1,7 +1,7 @@
 {
   "name": "sloped-edge",
   "description": "Sass mixin that helps you build sloped section edges with a consistent angle.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "main": "src/index.scss",
   "license": "MIT",
   "homepage": "https://github.com/dvlden/sloped-edges#readme",
@@ -25,9 +25,13 @@
     "last 2 versions"
   ],
   "scripts": {
-    "autoprefix:vertical": "postcss examples/layouts/vertical/dist/app.css -u autoprefixer -o examples/layouts/vertical/dist/app.css",
-    "sass:vertical": "node-sass --output-style expanded --source-map true examples/layouts/vertical/src/app.scss examples/layouts/vertical/dist/app.css",
-    "build:vertical": "rimraf examples/layouts/vertical/dist && yarn sass:vertical && yarn autoprefix:vertical"
+    "autoprefix:vertical": "postcss examples/vertical/dist/app.css -u autoprefixer -o examples/vertical/dist/app.css",
+    "sass:vertical": "node-sass --output-style expanded --source-map true examples/vertical/src/app.scss examples/vertical/dist/app.css",
+    "build:vertical": "rimraf examples/vertical/dist && yarn sass:vertical && yarn autoprefix:vertical",
+
+    "autoprefix:horizontal": "postcss examples/horizontal/dist/app.css -u autoprefixer -o examples/horizontal/dist/app.css",
+    "sass:horizontal": "node-sass --output-style expanded --source-map true examples/horizontal/src/app.scss examples/horizontal/dist/app.css",
+    "build:horizontal": "rimraf examples/horizontal/dist && yarn sass:horizontal && yarn autoprefix:horizontal"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",
