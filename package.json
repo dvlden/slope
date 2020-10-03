@@ -3,6 +3,9 @@
   "description": "Sass mixin that helps you build sloped section edges with a consistent angle.",
   "version": "2.0.1",
   "main": "src/index.scss",
+  "files": [
+    "src"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/dvlden/sloped-edges#readme",
   "bugs": "https://github.com/dvlden/sloped-edges/issues",
