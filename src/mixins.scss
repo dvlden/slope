@@ -1,17 +1,21 @@
-@mixin sloped-edge-root {
-  $sides: get-sides();
+@use 'sass:math';
+@use './functions' as fn;
+@use './variables' as var;
+
+@mixin edge-root {
+  $sides: fn.get-sides();
 
   position: relative;
 
   &::after {
-    @if $sloped-edge-layout == 'x' {
+    @if var.$layout == 'x' {
       top: 0;
     }
-    @else if $sloped-edge-layout == 'y' {
+    @else if var.$layout == 'y' {
       right: 0;
     }
 
-    #{nth($sides, 2)}: -#{$sloped-edge-height};
+    #{nth($sides, 2)}: -#{var.$height};
   }
 
   &::after {
@@ -23,12 +27,12 @@
   }
 }
 
-@mixin sloped-edge ($color, $position, $height: $sloped-edge-height) {
-  $size: get-size();
-  $sides: get-sides();
-  $opposite-sides: get-opposite-sides();
+@mixin edge ($color, $position, $height: var.$height) {
+  $size: fn.get-size();
+  $sides: fn.get-sides();
+  $opposite-sides: fn.get-opposite-sides();
 
-  @if $height != $sloped-edge-height {
+  @if $height != var.$height {
     &::after {
       #{nth($sides, 2)}: -#{$height};
     }
@@ -37,12 +41,12 @@
   @if $position == 'left' or $position == 'right' {
     &::after {
       border: {
-        @if $sloped-edge-layout == 'x' {
+        @if var.$layout == 'x' {
           left-color: $color;
           left-width: $height;
           #{nth($opposite-sides, index($sides, $position))}-width: $size;
         }
-        @else if $sloped-edge-layout == 'y' {
+        @else if var.$layout == 'y' {
           #{nth($sides, index($sides, $position))}-color: $color;
           #{nth($sides, index($sides, $position))}-width: $size;
           bottom-width: $height;
@@ -53,8 +57,8 @@
   @else if $position == 'in' or $position == 'out' {
     &::after {
       border: {
-        #{nth($opposite-sides, 1)}-width: ($size / 2);
-        #{nth($opposite-sides, 2)}-width: ($size / 2);
+        #{nth($opposite-sides, 1)}-width: math.div($size, 2);
+        #{nth($opposite-sides, 2)}-width: math.div($size, 2);
       }
 
       @if $position == 'in' {

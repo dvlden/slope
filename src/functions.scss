@@ -1,4 +1,6 @@
-@function get-item ($map, $key: $sloped-edge-layout) {
+@use 'variables' as var;
+
+@function get-item ($map, $key: var.$layout) {
   @return map-get($map, $key);
 }
 
