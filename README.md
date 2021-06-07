@@ -16,7 +16,7 @@ It uses most basic `css` properties, mainly just a `border`... No `transforms` o
 
 ```scss
 // import mixin
-@import '~sloped-edge';
+@use '~sloped-edge' as sloped;
 
 // set variable for a color
 $dark-gray: #292929;
@@ -28,8 +28,8 @@ $dark-gray: #292929;
   min-height: 50vh;
   
   // let the mixin do the magic
-  @include sloped-edge-root;
-  @include sloped-edge($dark-grey, 'right');
+  @include sloped.edge-root;
+  @include sloped.edge($dark-grey, 'right');
 }
 ```
 
@@ -49,10 +49,10 @@ $dark-gray: #292929;
 
 ## Variables
 
-| Variable              | Default Value       | Possible Value |
-| --------------------- | ------------------- | -------------- |
-| `$sloped-edge-height` | `5rem`              | -              |
-| `$sloped-edge-layout` | `'y'`               | `x`, `y`       |
+| Variable  | Default Value | Possible Value |
+| --------- | ------------- | -------------- |
+| `$height` | `5rem`        | -              |
+| `$layout` | `'y'`         | `x`, `y`       |
 
 
 ## Examples
