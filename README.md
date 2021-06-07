@@ -16,17 +16,17 @@ It uses most basic `css` properties, mainly just a `border`... No `transforms` o
 
 ```scss
 // import mixin
-@use '~sloped-edge' as sloped;
+@use './node_modules/sloped-edge/src/index' as sloped;
 
 // set variable for a color
-$dark-gray: #292929;
+$dark-grey: #292929;
 
 // give it a class with any name you prefer
 .section {
   // apply some base styling to the section
   background-color: $dark-grey;
   min-height: 50vh;
-  
+
   // let the mixin do the magic
   @include sloped.edge-root;
   @include sloped.edge($dark-grey, 'right');
