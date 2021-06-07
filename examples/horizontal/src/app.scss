@@ -1,0 +1,4 @@
+@use '../../src/main' with (
+  $sloped-edge-layout: 'x',
+  $sloped-edge-height: 20rem
+);
