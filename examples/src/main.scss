@@ -1,9 +1,9 @@
-$sloped-edge-layout: null !default;
-$sloped-edge-height: null !default;
+$slope-layout: null !default;
+$slope-height: null !default;
 
-@use '../../src/index' as sloped with (
-  $layout: $sloped-edge-layout,
-  $height: $sloped-edge-height
+@use '../../src/index' as slope with (
+  $layout: $slope-layout,
+  $height: $slope-height
 );
 @use 'variables' as *;
 
@@ -11,7 +11,7 @@ body {
   counter-reset: section;
   font-family: 'Helvetica', sans-serif;
 
-  @if $sloped-edge-layout == 'x' {
+  @if $slope-layout == 'x' {
     display: flex;
     height: 100vh;
     overflow-y: hidden;
@@ -24,7 +24,7 @@ body {
   align-items: center;
   min-height: 50vh;
 
-  @if $sloped-edge-layout == 'x' {
+  @if $slope-layout == 'x' {
     min-width: 50vw;
   }
 
@@ -48,19 +48,19 @@ body {
   }
 
   &.is-sloped {
-    @include sloped.edge-root;
+    @include slope.edge-root;
   }
 
-  @each $config in $sloped-edge-config {
-    $index: index($sloped-edge-config, $config);
+  @each $config in $slope-config {
+    $index: index($slope-config, $config);
     $color: map-get($section-colors, if($index % 2 == 0, 'even', 'odd'));
 
     &:nth-child(#{$index + 1}) {
-      padding-#{if($sloped-edge-layout == 'x', 'left', 'top')}: nth($config, 2);
+      padding-#{if($slope-layout == 'x', 'left', 'top')}: nth($config, 2);
     }
 
     &:nth-child(#{$index}) {
-      @include sloped.edge($color, nth($config, 1), nth($config, 2));
+      @include slope.edge($color, nth($config, 1), nth($config, 2));
     }
   }
 }

@@ -1,17 +1,18 @@
 {
-  "name": "sloped-edge",
+  "name": "@dvlden/slope",
   "description": "Sass mixin that helps you build sloped section edges with a consistent angle.",
-  "version": "3.0.2",
+  "version": "1.0.0",
+  "packageManager": "pnpm@7.11.0",
   "main": "src/index.scss",
   "files": [
     "src"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/dvlden/sloped-edges#readme",
-  "bugs": "https://github.com/dvlden/sloped-edges/issues",
+  "homepage": "https://github.com/dvlden/slope#readme",
+  "bugs": "https://github.com/dvlden/slope/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvlden/sloped-edges.git"
+    "url": "https://github.com/dvlden/slope.git"
   },
   "author": {
     "name": "Nenad Novaković",
@@ -19,10 +20,10 @@
     "url": "https://github.com/dvlden"
   },
   "keywords": [
-    "sloped",
-    "angled",
-    "edges",
-    "sections"
+    "slope",
+    "angle",
+    "edge",
+    "section"
   ],
   "browserslist": [
     "last 2 versions"

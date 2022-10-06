@@ -1,22 +1,21 @@
-# Sloped Edge - Sass mixin
+# Slope - A Sass mixin
 
-With this powerful Sass mixin (uses `scss` syntax), you'll be able to build sloped section edges with a consistent angle.
+With this powerful Sass mixin (uses `scss` syntax), you'll be able to build slope section edges with a consistent angle.
 It uses most basic `css` properties, mainly just a `border`... No `transforms` or `clip-path` properties, no `svg` images.
 
 
 ## Installation (pick one)
 
-1. [Download latest release](https://github.com/dvlden/sloped-edge/releases)
-2. `git clone https://github.com/dvlden/sloped-edge.git`
-3. `yarn add sloped-edge`
-4. `npm i sloped-edge`
+- `npm i @dvlden/slope`
+- `pnpm i @dvlden/slope`
+- `yarn add @dvlden/slope`
 
 
 ## Usage
 
 ```scss
 // import mixin
-@use './node_modules/sloped-edge/src/index' as sloped;
+@use './node_modules/slope/src/index' as slope;
 
 // set variable for a color
 $dark-grey: #292929;
@@ -28,8 +27,8 @@ $dark-grey: #292929;
   min-height: 50vh;
 
   // let the mixin do the magic
-  @include sloped.edge-root;
-  @include sloped.edge($dark-grey, 'right');
+  @include slope.edge-root;
+  @include slope.edge($dark-grey, 'right');
 }
 ```
 
@@ -60,8 +59,8 @@ $dark-grey: #292929;
 You'll find two examples that include all possible variations. The only difference between these examples is a layout...
 You can download this whole project and open examples locally or you may check live examples _(hosted on GitHub Pages)_:
 
-- [Sloped Edge - Vertical Example](https://dvlden.github.io/sloped-edge/vertical/)
-- [Sloped Edge - Horizontal Example](https://dvlden.github.io/sloped-edge/horizontal/)
+- [Vertical Example](https://dvlden.github.io/slope/vertical/)
+- [Horizontal Example](https://dvlden.github.io/slope/horizontal/)
 
 
 ## Browser Support
